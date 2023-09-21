@@ -1,0 +1,40 @@
+.MainScreen button {
+    margin: 20px;
+}
+
+.contacts-button button {
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-a {
+    background-color: #46139f;
+    color: white;
+}
+
+.btn-b {
+    background-color: #ff7f50;
+    color: white;
+}
+
+.btn-close {
+    background-color: white;
+    color: #46139f;
+    border: 1px solid #46139f
+}
+
+
+.btn-a:hover {
+    color: white;
+}
+
+.btn-b:hover:hover {
+    color: white;
+}
+
+.btn-close:hover {
+    background-color: white;
+    color: #46139f;
+    border: 1px solid #46139f
+}
