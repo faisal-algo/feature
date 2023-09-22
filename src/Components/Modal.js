@@ -2,8 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import "./MainScreen.css";
 import ContactList from "./ContactList";
 import { Scrollbars } from 'react-custom-scrollbars';
+import { useHistory } from 'react-router-dom';
 
 export default function Modal(props) {
+    const history = useHistory();
+
     const [onlyEven, setOnlyEven] = useState(false);
     const [modalType, setmodalType] = useState(props.modalType)
     const [searchedID, setSearchedID] = useState('');
@@ -33,6 +36,7 @@ export default function Modal(props) {
     };
 
     const handleCloseModal = () => {
+        history.push(`/`);
         setmodalType('')
         setSearchedID('');
         setTimeout(() => {

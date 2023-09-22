@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './MainScreen.css';
-import Modal from './Modal';
+// import Modal from './Modal';
+import { useHistory } from 'react-router-dom';
 
 export default function MainScreen() {
+    const history = useHistory();
 
     const [modalType, setmodalType] = useState('')
 
     const handleButtonClick = (type) => {
+        localStorage.setItem('modalType', type)
         console.log(type);
         setmodalType(type)
+        history.push(`/${type}`);
     }
 
     const renderButtons = (
@@ -31,7 +35,7 @@ export default function MainScreen() {
 
             {renderButtons}
 
-            <Modal modalType={modalType} />
+            {/* <Modal modalType={modalType} /> */}
 
         </>
     )

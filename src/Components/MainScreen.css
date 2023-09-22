@@ -1,3 +1,11 @@
+.MainScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
 .MainScreen button {
     margin: 20px;
 }
