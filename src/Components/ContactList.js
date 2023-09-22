@@ -72,6 +72,27 @@ export default function ContactList(props) {
         setDetailModal(true);
     };
 
+    const renderList = (
+        <table className="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Country ID</th>
+                    <th scope="col">Mobile</th>
+                </tr>
+            </thead>
+            <tbody>
+                {contacts.map((contact, index) => (
+                    <tr key={index} onClick={() => handleItemClick(contact)}>
+                        <th scope="row">{contact.id}</th>
+                        <td>{contact.country_id}</td>
+                        <td>{contact.phone_number || 'N/A'}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    )
+
     const renderContactDetails = detailModalData && (
         <Modal show={detailModal} onHide={() => setDetailModal(false)}>
             <Modal.Header>
@@ -105,28 +126,7 @@ export default function ContactList(props) {
 
     return (
         <>
-            {isApiFetching ? (
-                spinner
-            ) : (
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Country ID</th>
-                            <th scope="col">Mobile</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {contacts.map((contact, index) => (
-                            <tr key={index} onClick={() => handleItemClick(contact)}>
-                                <th scope="row">{contact.id}</th>
-                                <td>{contact.country_id}</td>
-                                <td>{contact.phone_number || 'N/A'}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            )}
+            {isApiFetching ? (spinner) : (renderList)}
 
             {renderContactDetails}
         </>
