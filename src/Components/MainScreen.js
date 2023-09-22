@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { actionCreators } from '../State';
+import { bindActionCreators } from 'react-redux'
 import './MainScreen.css';
 // import Modal from './Modal';
 import { useHistory } from 'react-router-dom';
@@ -6,11 +9,18 @@ import { useHistory } from 'react-router-dom';
 export default function MainScreen() {
     const history = useHistory();
 
+    // const { allContacts, usContacts } = bindActionCreators(
+    //     actionCreators,
+    //     useDispatch()
+    // )
+
     const [modalType, setmodalType] = useState('')
 
     const handleButtonClick = (type) => {
+
+        // type === 'modalA' ? allContacts(true) : usContacts(true)
+
         localStorage.setItem('modalType', type)
-        console.log(type);
         setmodalType(type)
         history.push(`/${type}`);
     }

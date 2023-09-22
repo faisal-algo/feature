@@ -6,9 +6,8 @@ import { useHistory } from 'react-router-dom';
 
 export default function Modal(props) {
     const history = useHistory();
-
     const [onlyEven, setOnlyEven] = useState(false);
-    const [modalType, setmodalType] = useState(props.modalType)
+    const [modalType, setmodalType] = useState(localStorage.getItem('modalType'))
     const [searchedID, setSearchedID] = useState('');
     const [displayCount, setDisplayCount] = useState(10);
     const scrollbarsRef = useRef();
@@ -59,11 +58,9 @@ export default function Modal(props) {
     }
 
     const handleAllcontactsClick = () => {
-        console.log('handleAllcontactsClick');
         setmodalType('modalA')
     }
     const handleUScontactsClick = () => {
-        console.log('handleUScontactsClick');
         setmodalType('modalB')
     }
 
@@ -81,7 +78,7 @@ export default function Modal(props) {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="staticBackdropLabel">
-                                {props.modalType === 'modalA' ? 'Modal A. All Contacts' : 'Modal B. US Contacts'}
+                                {modalType === 'modalA' ? 'Modal A. All Contacts' : 'Modal B. US Contacts'}
                             </h5>
                         </div>
 
@@ -124,7 +121,7 @@ export default function Modal(props) {
                                 onlyEven={onlyEven}
                                 searchedID={searchedID}
                                 displayCount={displayCount}
-                                onContactClick={handleContactClick}
+                                // onContactClick={handleContactClick}
                             />
                         </Scrollbars>
 
