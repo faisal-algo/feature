@@ -9,6 +9,7 @@ export default function Modal(props) {
     const [onlyEven, setOnlyEven] = useState(false);
     const [modalType, setmodalType] = useState(localStorage.getItem('modalType'))
     const [searchedID, setSearchedID] = useState('');
+    const [isSearching, setIsSearching] = useState(false)
     const [displayCount, setDisplayCount] = useState(10);
     const scrollbarsRef = useRef();
 
@@ -30,6 +31,7 @@ export default function Modal(props) {
     // };
 
     const handleSearch = (event) => {
+        setIsSearching(true)
         const { value } = event.target;
         setSearchedID(value);
     };
@@ -119,9 +121,10 @@ export default function Modal(props) {
                             <ContactList
                                 modalType={modalType}
                                 onlyEven={onlyEven}
+                                isSearching={isSearching}
                                 searchedID={searchedID}
                                 displayCount={displayCount}
-                                // onContactClick={handleContactClick}
+                            // onContactClick={handleContactClick}
                             />
                         </Scrollbars>
 
