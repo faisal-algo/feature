@@ -65,7 +65,7 @@ export default function ContactList(props) {
     }, [props.modalType, props.onlyEven, props.displayCount, props.searchedID]);
 
     const spinner = (
-        <Spinner animation="border" role="status"></Spinner>
+        <Spinner animation="border" role="status" className="spinner"></Spinner>
     )
 
     const handleItemClick = (contact) => {

@@ -1,13 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainScreen from './Components/MainScreen';
+import Modal from './Components/Modal';
 
-function App() {
+export default function App() {
+  const modalType = localStorage.getItem('modalType');
+
   return (
-    <div className="App">
-      <MainScreen />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <MainScreen />
+        </Route>
+        <Route path="/modalA" render={() => <Modal modalType={modalType} />} />
+        <Route path="/modalB" render={() => <Modal modalType={modalType} />} />
+      </Switch>
+    </Router>
   );
 }
-
-export default App;
