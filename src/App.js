@@ -5,7 +5,6 @@ import Modal from './Components/Modal';
 
 export default function App() {
   const modalType = localStorage.getItem('modalType');
-
   return (
     <Router>
       <Switch>

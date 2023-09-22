@@ -13,7 +13,6 @@ export default function ContactList(props) {
 
     useEffect(() => {
         const fetchData = async () => {
-            console.log(props.modalType);
 
             let params = {
                 companyId: 560,
@@ -69,7 +68,6 @@ export default function ContactList(props) {
     )
 
     const handleItemClick = (contact) => {
-        console.log(contact, 'contact');
         setDetailModalData(contact);
         setDetailModal(true);
     };
